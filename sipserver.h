@@ -15,6 +15,7 @@ public:
     explicit SipServer(quint16 port, bool debug = false, QObject *parent = Q_NULLPTR);
     ~SipServer();
 
+    void sendBcastTextMessage(QString message);
     int getClientsCount();
 
 Q_SIGNALS:
