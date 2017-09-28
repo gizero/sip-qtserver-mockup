@@ -26,11 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-        sipserver.cpp
+        sipserver.cpp \
+        sipnotifier.cpp
 
 HEADERS += \
         mainwindow.h \
-        sipserver.h
+        sipserver.h \
+        sipnotifier.h
 
 FORMS += \
         mainwindow.ui
