@@ -1,8 +1,9 @@
 #include "sipnotifier.h"
 #include <QtCore/QDebug>
 
-SipNotifier::SipNotifier(QObject *parent) : QObject(parent)
+SipNotifier::SipNotifier(QObject *parent, SipServer *server) : QObject(parent)
 {
+    m_server = server;
 }
 
 bool SipNotifier::eventFilter(QObject *watched, QEvent *event)
