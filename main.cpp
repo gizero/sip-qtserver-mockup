@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     SipServer *ss = new SipServer(port, debug);
     QObject::connect(ss, &SipServer::closed, &a, &QApplication::quit);
 
-    MainWindow w;
+    MainWindow w(0, ss);
     w.show();
 
     return a.exec();
