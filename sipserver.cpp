@@ -107,12 +107,18 @@ void SipServer::processBinaryMessage(QByteArray message)
 //! [sendBcastTextMessage]
 void SipServer::sendBcastTextMessage(QString message)
 {
-    //QWebSocket *pClient = qobject_cast<QWebSocket *>(sender());
-    if (m_debug)
-        qDebug() << "message sent to:" << message;
-//    if (pClient) {
-//        pClient->sendTextMessage(message);
-//    }
+    QList<QWebSocket *>::ConstIterator it = m_clients.constBegin();
+
+    for ( ; it != m_clients.constEnd(); ++it )
+    {
+        QWebSocket *pClient = qobject_cast<QWebSocket *>(*it);
+        if (pClient) {
+            pClient->sendTextMessage(message);
+
+            if (m_debug)
+                qDebug() << "message sent to:" << pClient;
+        }
+    }
 }
 //! [sendBcastTextMessage]
 
