@@ -11,6 +11,8 @@ bool SipNotifier::eventFilter(QObject *watched, QEvent *event)
     if (event->type() == QEvent::FocusIn)
     {
         qDebug() << "someone got focus!";
+        if (m_server)
+            m_server->sendBcastTextMessage("BCAST");
 //        if (watched == ui->lineEdit)
 //        {
 //            qDebug() << "lineEdit got focus!";
