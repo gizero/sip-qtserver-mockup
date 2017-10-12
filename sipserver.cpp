@@ -75,16 +75,16 @@ void SipServer::onNewConnection()
     if (m_debug)
         qDebug() << "onNewConnection:" << pSocket;
 
-    connect(pSocket, &QWebSocket::textMessageReceived, this, &SipServer::processTextMessage);
-    connect(pSocket, &QWebSocket::binaryMessageReceived, this, &SipServer::processBinaryMessage);
+    connect(pSocket, &QWebSocket::textMessageReceived, this, &SipServer::echoTextMessage);
+    connect(pSocket, &QWebSocket::binaryMessageReceived, this, &SipServer::echoBinaryMessage);
     connect(pSocket, &QWebSocket::disconnected, this, &SipServer::socketDisconnected);
 
     m_clients << pSocket;
 }
 //! [onNewConnection]
 
-//! [processTextMessage]
-void SipServer::processTextMessage(QString message)
+//! [echoTextMessage]
+void SipServer::echoTextMessage(QString message)
 {
     QWebSocket *pClient = qobject_cast<QWebSocket *>(sender());
     if (m_debug)
@@ -93,10 +93,10 @@ void SipServer::processTextMessage(QString message)
         pClient->sendTextMessage(message);
     }
 }
-//! [processTextMessage]
+//! [echoTextMessage]
 
-//! [processBinaryMessage]
-void SipServer::processBinaryMessage(QByteArray message)
+//! [echoBinaryMessage]
+void SipServer::echoBinaryMessage(QByteArray message)
 {
     QWebSocket *pClient = qobject_cast<QWebSocket *>(sender());
     if (m_debug)
@@ -105,7 +105,7 @@ void SipServer::processBinaryMessage(QByteArray message)
         pClient->sendBinaryMessage(message);
     }
 }
-//! [processBinaryMessage]
+//! [echoBinaryMessage]
 
 //! [sendBcastTextMessage]
 void SipServer::sendBcastTextMessage(QString message)
