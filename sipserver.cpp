@@ -72,6 +72,9 @@ void SipServer::onNewConnection()
 {
     QWebSocket *pSocket = m_pWebSocketServer->nextPendingConnection();
 
+    if (m_debug)
+        qDebug() << "onNewConnection:" << pSocket;
+
     connect(pSocket, &QWebSocket::textMessageReceived, this, &SipServer::processTextMessage);
     connect(pSocket, &QWebSocket::binaryMessageReceived, this, &SipServer::processBinaryMessage);
     connect(pSocket, &QWebSocket::disconnected, this, &SipServer::socketDisconnected);
