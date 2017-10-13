@@ -27,14 +27,14 @@
      <item>
       <widget class="QLineEdit" name="lineEdit_2">
        <property name="text">
-        <string/>
+        <string>hello...</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QLineEdit" name="lineEdit_3">
        <property name="text">
-        <string/>
+        <string>...world!</string>
        </property>
       </widget>
      </item>
