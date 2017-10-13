@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent, SipServer *server) :
     SipNotifier *sipNotifier = new SipNotifier(this, server);
     ui->lineEdit->installEventFilter(sipNotifier);
     ui->lineEdit_2->installEventFilter(sipNotifier);
+    ui->lineEdit_3->installEventFilter(sipNotifier);
 }
 
 MainWindow::~MainWindow()
