@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "sipserver.h"
 #include <QApplication>
+#include <QCommandLineParser>
 
 int main(int argc, char *argv[])
 {
@@ -8,6 +9,12 @@ int main(int argc, char *argv[])
     int port = 12345;
 
     QApplication a(argc, argv);
+    QCommandLineParser parser;
+
+    parser.setApplicationDescription("Qt server mockup");
+    parser.addHelpOption();
+
+    parser.process(a);
 
     SipServer *ss = new SipServer(port, debug);
     QObject::connect(ss, &SipServer::closed, &a, &QApplication::quit);
