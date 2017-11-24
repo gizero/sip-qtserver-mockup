@@ -19,3 +19,18 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_clearButton_clicked()
+{
+    ui->lineEdit->clear();
+}
+
+void MainWindow::on_clearButton_2_clicked()
+{
+    ui->lineEdit_2->clear();
+}
+
+void MainWindow::on_clearButton_3_clicked()
+{
+    ui->lineEdit_3->clear();
+}

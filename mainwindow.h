@@ -16,6 +16,11 @@ public:
     explicit MainWindow(QWidget *parent = 0, SipServer *server = 0);
     ~MainWindow();
 
+private slots:
+    void on_clearButton_clicked();
+    void on_clearButton_2_clicked();
+    void on_clearButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
